@@ -60,3 +60,12 @@ def key_words(krsod, dict1, count_doc):
     
     for i in range(len(new_series)):
     new_series[i] = key_words(dfn["krsod"][i], dict1, count_doc)
+    
+    
+    
+    
+    
+    
+    dfn['org']=dfn['avtor'].str.split('(').str.get(1)
+dfn['avtor']=dfn['avtor'].str.split('(').str.get(0)
+dfn['org']=dfn['org'].str.replace(")","")
