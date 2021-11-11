@@ -86,3 +86,16 @@ for token_list in corpus:
         normal_form = parsed_token[0].normal_form
         normalized_token_list.append(normal_form)
     normalized_corpus.append(normalized_token_list)
+
+
+
+doc count = len(normalized corpus) 
+doc ids = []
+tokens = [] 
+for doc id in range(doc_count): 
+    for token in normalized corpus[doc_id]: 
+         doc ids. append(doc id) 
+         tokens.append (token) 
+tokens df = pd.Dataframe ({ 'doc id': doc ids, 'word': tokens })
+tokens df = tokens df.assign(dummy = 1) 
+tokens df. head)|
