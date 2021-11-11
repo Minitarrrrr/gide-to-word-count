@@ -66,6 +66,23 @@ def key_words(krsod, dict1, count_doc):
     
     
     
-    dfn['org']=dfn['avtor'].str.split('(').str.get(1)
-dfn['avtor']=dfn['avtor'].str.split('(').str.get(0)
+    dfn['org']=dfn['avt'].str.split('(').str.get(1)
+dfn['avt']=dfn['avt'].str.split('(').str.get(0)
 dfn['org']=dfn['org'].str.replace(")","")
+
+
+for raw_text in text_df_description_values:
+    raw_text_lower  = raw_text.lower()
+    text_by_words = reg_expr_compiled.findall(raw_text_lower)
+    corpus.append(text_by_words)
+print(corpus)
+
+
+morph=pymorhy2.MorphAnalyzer()
+for token_list in corpus:
+    normalized_token_list = []
+    for word in token_list:
+        parsed_token = morph.parse(word)
+        normal_form = parsed_token[0].normal_form
+        normalized_token_list.append(normal_form)
+    normalized_corpus.append(normalized_token_list)
